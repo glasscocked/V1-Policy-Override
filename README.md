@@ -172,6 +172,47 @@ accepted. Include the extension (`.csv` or `.xlsx`).
 
 **Quit:** press Enter on an empty line at the hostname prompt, or type `q` at the action prompt.
 
+### Interactive mode on Windows
+
+Set your token first (see [Running on Windows](#running-on-windows)), then start the prompts from
+PowerShell:
+
+```powershell
+cd C:\Users\<you>\EDR-API-REGENERON
+py edr.py
+```
+
+The prompts are the same as on macOS. A hostname shows its details, then you choose an action:
+
+```
+Input a Hostname (or c=import CSV or XLSX, blank = quit): host-01.example.internal
+
+  Endpoint:        host-01.example.internal
+  Agent GUID:      00000000-0000-0000-0000-000000000001
+  Agent version:   202609
+  EPP agent ver.:  20.0.3.28120
+  Version check:   OK
+  EDR:             ON
+  Adv. risk tel.:  ON
+  Connectivity:    connected
+  Last connected:  2026-10-21T14:16:00
+
+[e] enable EDR  [d] disable EDR (removes override)  [r] refresh  [n] new host  [q] quit:
+```
+
+**Batch import on Windows:** at the hostname prompt, type `c`, then the path to your file **in
+double quotes**:
+
+```
+"C:\Users\<you>\Documents\CSV_EXAMPLE.xlsx"
+```
+
+Quotes are required here. Without them, the backslashes are read as escape characters and the path
+breaks. Dragging a file from File Explorer into the PowerShell window also pastes the path in quotes.
+
+**Quitting on Windows:** press Enter on an empty line at the hostname prompt, type `q` at the action
+prompt, or press Ctrl+C at any prompt. Ctrl+C exits cleanly without an error message.
+
 ## Command-line mode
 
 Any arguments switch to command-line mode, which is the same tool without the prompts:
